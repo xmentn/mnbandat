@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hệ thống quản trị dữ liệu - Trường Mầm non Bàn Đạt</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="home-page">
+  <header class="home-header">
+    <div class="home-header-inner">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">
+          <span>MN</span>
+        </div>
+        <div class="brand-copy">
+          <div class="brand-kicker">TRƯỜNG MẦM NON BÀN ĐẠT</div>
+          <h1>HỆ THỐNG QUẢN TRỊ DỮ LIỆU</h1>
+          <p>Nền tảng quản lý, tổng hợp và khai thác dữ liệu phục vụ công tác nhà trường</p>
+        </div>
+      </div>
+
+      <div class="home-actions">
+        <a class="btn admin-btn" href="admin.html">Quản trị / Nhập Excel</a>
+        <button class="btn danger" id="logoutBtn">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="module-nav" aria-label="Các phân hệ dữ liệu">
+    <div class="module-nav-inner">
+      <a class="module-tab active" href="index.html" aria-current="page">
+        <span class="tab-dot"></span>
+        HỘ GIA ĐÌNH
+      </a>
+      <button class="module-tab upcoming" type="button" disabled title="Phân hệ sẽ phát triển ở giai đoạn tiếp theo">
+        <span class="tab-dot"></span>
+        DỮ LIỆU TRẺ EM
+        <span class="soon-badge">Sắp có</span>
+      </button>
+      <button class="module-tab upcoming" type="button" disabled title="Phân hệ sẽ phát triển ở giai đoạn tiếp theo">
+        <span class="tab-dot"></span>
+        BÁO CÁO - THỐNG KÊ
+        <span class="soon-badge">Sắp có</span>
+      </button>
+      <button class="module-tab upcoming" type="button" disabled title="Phân hệ sẽ phát triển ở giai đoạn tiếp theo">
+        <span class="tab-dot"></span>
+        DỮ LIỆU KHÁC
+        <span class="soon-badge">Sắp có</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container home-container">
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">PHÂN HỆ ĐANG SỬ DỤNG</p>
+        <h2>Danh sách hộ gia đình</h2>
+        <p class="section-description">Tra cứu, lọc và tổng hợp dữ liệu hộ gia đình theo xóm/tổ.</p>
+      </div>
+      <div class="live-status" title="Dữ liệu được đồng bộ từ Firebase">
+        <span class="live-dot"></span>
+        Dữ liệu trực tuyến
+      </div>
+    </section>
+
+    <section class="stats-grid home-stats">
+      <article class="stat stat-households">
+        <div class="stat-icon">H</div>
+        <div class="stat-content">
+          <span>Tổng số hộ</span>
+          <strong id="totalHouseholds">0</strong>
+          <small>Hộ gia đình</small>
+        </div>
+      </article>
+
+      <article class="stat stat-population">
+        <div class="stat-icon">N</div>
+        <div class="stat-content">
+          <span>Tổng nhân khẩu</span>
+          <strong id="totalPopulation">0</strong>
+          <small>Nhân khẩu</small>
+        </div>
+      </article>
+
+      <article class="stat stat-villages">
+        <div class="stat-icon">X</div>
+        <div class="stat-content">
+          <span>Số xóm/tổ</span>
+          <strong id="totalVillages">0</strong>
+          <small>Đơn vị dân cư</small>
+        </div>
+      </article>
+
+      <article class="stat stat-flooded">
+        <div class="stat-icon">!</div>
+        <div class="stat-content">
+          <span>Hộ ngập nền/nóc</span>
+          <strong id="totalFlooded">0</strong>
+          <small>Hộ có ghi nhận</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel filters home-filters">
+      <div class="filter-title">
+        <strong>Tìm kiếm và lọc dữ liệu</strong>
+        <span>Thu hẹp danh sách theo nhu cầu tra cứu</span>
+      </div>
+
+      <label>Tìm chủ hộ
+        <input id="searchInput" type="search" placeholder="Nhập họ và tên chủ hộ..." autocomplete="off" />
+      </label>
+
+      <label>Xóm/Tổ
+        <select id="villageFilter"><option value="">Tất cả xóm/tổ</option></select>
+      </label>
+
+      <label>Trạng thái
+        <select id="statusFilter">
+          <option value="active">Đang sử dụng</option>
+          <option value="all">Tất cả</option>
+          <option value="inactive">Đã khóa</option>
+        </select>
+      </label>
+
+      <button class="btn clear-btn" id="clearFilters">Xóa bộ lọc</button>
+    </section>
+
+    <section class="panel data-panel">
+      <div class="panel-heading-row">
+        <div>
+          <h3>Danh sách chi tiết</h3>
+          <p>Dữ liệu luôn được sắp xếp theo thứ tự chữ cái tiếng Việt (A → Z). File Excel xuất ra theo đúng bộ lọc hiện tại.</p>
+        </div>
+        <div class="panel-actions">
+          <button class="btn excel-btn" id="exportExcelBtn" type="button">
+            <span class="excel-icon" aria-hidden="true">X</span>
+            Xuất Excel
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap home-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Họ và tên chủ hộ</th>
+              <th>Thường trú phường/xã</th>
+              <th>Địa chỉ chi tiết</th>
+              <th>Nhân khẩu</th>
+              <th>Ngập nền nhà</th>
+              <th>Ngập nóc nhà</th>
+              <th>Nguồn</th>
+            </tr>
+          </thead>
+          <tbody id="householdBody"></tbody>
+        </table>
+      </div>
+      <p id="emptyState" class="empty hidden">Không có dữ liệu phù hợp.</p>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div>HỆ THỐNG QUẢN TRỊ DỮ LIỆU • TRƯỜNG MẦM NON BÀN ĐẠT</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

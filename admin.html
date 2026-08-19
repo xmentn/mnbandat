@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Quản trị dữ liệu hộ gia đình</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>QUẢN TRỊ DỮ LIỆU</h1>
+        <p>Nhập nhiều file Excel và quản lý dữ liệu</p>
+      </div>
+      <div class="topbar-actions">
+        <a class="btn" href="index.html">← Danh sách</a>
+        <button class="btn danger" id="logoutBtn">Đăng xuất</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="adminDenied" class="panel hidden">
+        <h2>Không có quyền quản trị</h2>
+        <p>Tài khoản của bạn chỉ có quyền xem dữ liệu.</p>
+      </section>
+
+      <div id="adminContent" class="hidden">
+        <section class="panel">
+          <h2>1. Nhập dữ liệu từ Excel</h2>
+          <p class="muted">
+            Có thể chọn nhiều file .xlsx/.xls cùng lúc. Hệ thống tự tìm dòng
+            tiêu đề có cột “Họ và tên” và “Số lượng nhân khẩu”.
+          </p>
+          <div class="import-grid">
+            <label
+              >Xã mặc định (nếu file không đọc được tên xã)
+              <input id="defaultCommune" value="Xã Tân Khánh" />
+            </label>
+            <label
+              >Chọn file Excel
+              <input id="excelFiles" type="file" accept=".xlsx,.xls" multiple />
+            </label>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="previewBtn">
+              Đọc và xem trước
+            </button>
+            <button class="btn success" id="importBtn" disabled>
+              Lưu dữ liệu
+            </button>
+          </div>
+          <p id="importMessage" class="message"></p>
+        </section>
+
+        <section class="panel">
+          <h2>2. Xem trước dữ liệu</h2>
+          <div class="stats-grid small">
+            <article class="stat">
+              <span>Số dòng hợp lệ</span><strong id="previewCount">0</strong>
+            </article>
+            <article class="stat">
+              <span>Số file</span><strong id="fileCount">0</strong>
+            </article>
+            <article class="stat">
+              <span>Số xóm/tổ</span><strong id="previewVillages">0</strong>
+            </article>
+          </div>
+          <div class="table-wrap preview-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Chủ hộ</th>
+                  <th>Xã</th>
+                  <th>Xóm/Tổ</th>
+                  <th>Địa chỉ</th>
+                  <th>Nhân khẩu</th>
+                  <th>File</th>
+                  <th>Dòng</th>
+                </tr>
+              </thead>
+              <tbody id="previewBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>3. Quản lý dữ liệu đang có</h2>
+          <p class="muted">
+            Có thể khóa một bản ghi khi không còn sử dụng. Bản ghi bị khóa không
+            tính vào tổng mặc định.
+          </p>
+          <div class="actions">
+            <input id="manageSearch" placeholder="Tìm tên chủ hộ hoặc xóm..." />
+            <button class="btn" id="reloadBtn">Tải lại</button>
+          </div>
+          <div class="table-wrap preview-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Chủ hộ</th>
+                  <th>Xóm/Tổ</th>
+                  <th>Nhân khẩu</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="manageBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>
