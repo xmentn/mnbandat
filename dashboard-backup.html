@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Quản lý công việc | Trường Mầm non</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="auth-checking">
+    <header class="dashboard-header">
+      <div class="container">
+        <div>
+          <h1>TRƯỜNG MẦM NON</h1>
+
+          <p>Quản lý công việc</p>
+        </div>
+        <div class="user-area">
+          <span id="currentUser"> Ban Giám hiệu </span>
+
+          <button type="button" class="btn btn-outline" id="logoutButton">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <div class="container">
+        <!-- KHU VỰC GIAO NHIỆM VỤ -->
+
+        <section class="card">
+          <div class="section-header">
+            <h2>Giao nhiệm vụ</h2>
+
+            <p>Tạo và giao nhiệm vụ cho giáo viên</p>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <div class="form-group">
+              <label for="assignedDate"> Ngày giao việc </label>
+
+              <input type="date" id="assignedDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="taskName"> Tên nhiệm vụ </label>
+
+              <input
+                type="text"
+                id="taskName"
+                placeholder="Nhập tên nhiệm vụ"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="assignee"> Người được giao việc </label>
+
+              <select id="assignee" required>
+                <option value="">-- Chọn giáo viên --</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="deadline"> Thời hạn hoàn thành </label>
+
+              <input type="date" id="deadline" required />
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="expectedOutput"> Kết quả đầu ra </label>
+
+              <textarea
+                id="expectedOutput"
+                rows="4"
+                placeholder="Nhập yêu cầu về kết quả đầu ra"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="taskSubmitButton"
+              >
+                Giao nhiệm vụ
+              </button>
+
+              <p id="taskMessage" class="task-message" aria-live="polite"></p>
+            </div>
+          </form>
+        </section>
+
+        <!-- DANH SÁCH NHIỆM VỤ -->
+
+        <section class="card">
+          <div class="section-header">
+            <h2>Danh sách nhiệm vụ</h2>
+
+            <p>Các nhiệm vụ đã được giao</p>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="task-table">
+              <thead>
+                <tr>
+                  <th>Ngày giao</th>
+                  <th>Tên nhiệm vụ</th>
+                  <th>Người thực hiện</th>
+                  <th>Thời hạn</th>
+                  <th>Kết quả đầu ra</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+
+              <tbody id="taskList">
+                <tr>
+                  <td colspan="6" class="empty-message">
+                    Chưa có nhiệm vụ nào.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="js/auth-guard.js"></script>
+
+    <script type="module" src="js/tasks.js"></script>
+  </body>
+</html>
