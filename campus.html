@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Khu vực điểm trường | Trường Mầm non Tân Khánh 2</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="auth-checking campus-page">
+    <!-- ==================================================
+         HEADER
+    =================================================== -->
+    <header class="dashboard-header campus-header">
+      <div class="container dashboard-topbar">
+        <a href="index.html" class="dashboard-brand">
+          <div class="dashboard-brand-mark">MN</div>
+          <div>
+            <h1>TRƯỜNG MẦM NON TÂN KHÁNH 2</h1>
+            <p>Khu vực quản lý điểm trường</p>
+          </div>
+        </a>
+
+        <div class="user-area">
+          <div class="user-info">
+            <span class="user-info-label">Đang đăng nhập</span>
+            <strong id="currentCampusUser">Điểm trường</strong>
+          </div>
+
+          <a href="index.html" class="btn btn-outline">Về trang chủ</a>
+
+          <button type="button" class="btn btn-outline" id="campusLogoutButton">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================================================
+         NỘI DUNG
+    =================================================== -->
+    <main class="dashboard-main campus-main">
+      <div class="container dashboard-layout campus-layout">
+        <aside class="dashboard-sidebar campus-sidebar">
+          <div class="sidebar-heading">KHU VỰC ĐIỂM TRƯỜNG</div>
+
+          <div class="campus-sidebar-name" id="sidebarCampusName">
+            Đang tải điểm trường...
+          </div>
+
+          <nav class="dashboard-nav campus-nav" aria-label="Chức năng điểm trường">
+            <button
+              type="button"
+              class="dashboard-nav-item active"
+              data-campus-tab="overview"
+            >
+              <span class="campus-nav-number">01</span>
+              Tổng quan
+            </button>
+
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-campus-tab="teachers"
+            >
+              <span class="campus-nav-number">02</span>
+              Giáo viên
+            </button>
+
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-campus-tab="classes"
+            >
+              <span class="campus-nav-number">03</span>
+              Lớp học
+            </button>
+
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-campus-tab="students"
+            >
+              <span class="campus-nav-number">04</span>
+              Học sinh
+            </button>
+
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-campus-tab="reports"
+            >
+              <span class="campus-nav-number">05</span>
+              Phản ánh vụ việc
+            </button>
+          </nav>
+
+          <div class="sidebar-note">
+            <strong>Tài khoản điểm trường</strong>
+            <p>
+              Tài khoản này chỉ truy cập khu vực và dữ liệu của điểm trường đã
+              được liên kết trong hệ thống.
+            </p>
+          </div>
+        </aside>
+
+        <div class="dashboard-content campus-content">
+          <!-- TỔNG QUAN -->
+          <section class="campus-tab-panel" data-campus-panel="overview">
+            <section class="dashboard-welcome campus-welcome">
+              <div class="welcome-content">
+                <span class="welcome-label">ĐIỂM TRƯỜNG</span>
+                <h2 id="campusWelcomeName">Đang tải thông tin...</h2>
+                <p>
+                  Khu vực dành riêng cho điểm trường. Các chức năng dữ liệu sẽ
+                  được phát triển lần lượt ở các bước tiếp theo.
+                </p>
+              </div>
+
+              <div class="welcome-decoration">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </section>
+
+            <div class="campus-home-grid">
+              <article class="campus-home-card">
+                <span class="campus-home-index">01</span>
+                <div>
+                  <h3>Danh sách giáo viên</h3>
+                  <p>Quản lý giáo viên thuộc đúng điểm trường này.</p>
+                </div>
+              </article>
+
+              <article class="campus-home-card">
+                <span class="campus-home-index">02</span>
+                <div>
+                  <h3>Danh sách lớp</h3>
+                  <p>Quản lý các lớp đang hoạt động tại điểm trường.</p>
+                </div>
+              </article>
+
+              <article class="campus-home-card">
+                <span class="campus-home-index">03</span>
+                <div>
+                  <h3>Danh sách học sinh</h3>
+                  <p>Quản lý học sinh theo lớp tại điểm trường.</p>
+                </div>
+              </article>
+
+              <article class="campus-home-card">
+                <span class="campus-home-index">04</span>
+                <div>
+                  <h3>Phản ánh vụ việc</h3>
+                  <p>Gửi và theo dõi phản ánh phát sinh tại điểm trường.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- GIÁO VIÊN -->
+          <section class="campus-tab-panel" data-campus-panel="teachers" hidden>
+            <section class="page-section-heading">
+              <div>
+                <span class="section-eyebrow">ĐIỂM TRƯỜNG</span>
+                <h2>Danh sách giáo viên</h2>
+                <p>Chức năng này sẽ được phát triển ở bước tiếp theo.</p>
+              </div>
+            </section>
+            <section class="card campus-coming-card">
+              <strong>Chưa có dữ liệu giáo viên.</strong>
+              <p>
+                Bước sau chúng ta sẽ xây chức năng thêm, sửa, quản lý giáo viên
+                theo đúng campusId của tài khoản đang đăng nhập.
+              </p>
+            </section>
+          </section>
+
+          <!-- LỚP -->
+          <section class="campus-tab-panel" data-campus-panel="classes" hidden>
+            <section class="page-section-heading">
+              <div>
+                <span class="section-eyebrow">ĐIỂM TRƯỜNG</span>
+                <h2>Danh sách lớp</h2>
+                <p>Khung quản lý lớp của điểm trường.</p>
+              </div>
+            </section>
+            <section class="card campus-coming-card">
+              <strong>Chưa có dữ liệu lớp.</strong>
+              <p>Chức năng sẽ được mở sau khi hoàn thiện phần giáo viên.</p>
+            </section>
+          </section>
+
+          <!-- HỌC SINH -->
+          <section class="campus-tab-panel" data-campus-panel="students" hidden>
+            <section class="page-section-heading">
+              <div>
+                <span class="section-eyebrow">ĐIỂM TRƯỜNG</span>
+                <h2>Danh sách học sinh</h2>
+                <p>Khung quản lý học sinh theo lớp.</p>
+              </div>
+            </section>
+            <section class="card campus-coming-card">
+              <strong>Chưa có dữ liệu học sinh.</strong>
+              <p>Chức năng sẽ được phát triển sau phần danh sách lớp.</p>
+            </section>
+          </section>
+
+          <!-- PHẢN ÁNH -->
+          <section class="campus-tab-panel" data-campus-panel="reports" hidden>
+            <section class="page-section-heading">
+              <div>
+                <span class="section-eyebrow">ĐIỂM TRƯỜNG</span>
+                <h2>Phản ánh vụ việc</h2>
+                <p>Khung gửi và theo dõi phản ánh của điểm trường.</p>
+              </div>
+            </section>
+            <section class="card campus-coming-card">
+              <strong>Chưa có phản ánh.</strong>
+              <p>
+                Sau này điểm trường có thể gửi phản ánh về học sinh, cơ sở vật
+                chất, trang thiết bị và các sự cố cần Ban Giám hiệu xử lý.
+              </p>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/campus-ui.js"></script>
+    <script type="module" src="js/campus-guard.js"></script>
+  </body>
+</html>

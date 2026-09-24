@@ -1,14 +1,13 @@
 /* =========================================================
-   TRƯỜNG MẦM NON
-   DESIGN SYSTEM - VERSION 1.0
+   TRƯỜNG MẦM NON TÂN KHÁNH 2
+   STYLE.CSS - BẢN HỢP NHẤT
+   Dùng chung cho: index.html, login.html, dashboard.html
 ========================================================= */
 
 /* =========================================================
-   1. BIẾN GIAO DIỆN
+   1. DESIGN TOKENS
 ========================================================= */
-
 :root {
-  /* Màu thương hiệu */
   --color-primary: #168c7b;
   --color-primary-dark: #126f63;
   --color-primary-light: #e8f6f3;
@@ -17,55 +16,39 @@
   --color-secondary-light: #edf5fc;
 
   --color-accent: #f5b942;
-  --color-coral: #f28c6f;
 
-  /* Nền */
   --color-bg: #f5f9f8;
-  --color-bg-soft: #f9fbfb;
   --color-surface: #ffffff;
 
-  /* Chữ */
   --color-text: #24364b;
-  --color-text-heading: #193b4d;
-  --color-text-muted: #6b7a8d;
-  --color-text-light: #94a3b8;
+  --color-heading: #193b4d;
+  --color-muted: #6b7a8d;
+  --color-light: #94a3b8;
 
-  /* Viền */
   --color-border: #e2ebe8;
   --color-border-strong: #d3e1dd;
 
-  /* Trạng thái */
   --color-success: #16865c;
-  --color-success-bg: #edf9f3;
-
   --color-danger: #d94b4b;
   --color-danger-bg: #fff3f3;
-
   --color-info: #357fc4;
-  --color-info-bg: #eff6fc;
 
-  /* Bo góc */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-xl: 24px;
 
-  /* Bóng đổ */
   --shadow-sm: 0 2px 8px rgba(35, 68, 73, 0.05);
   --shadow-md: 0 8px 28px rgba(35, 68, 73, 0.07);
   --shadow-lg: 0 18px 50px rgba(35, 68, 73, 0.1);
 
-  /* Kích thước */
   --container-width: 1200px;
-
-  /* Hiệu ứng */
   --transition: 0.2s ease;
 }
 
 /* =========================================================
    2. RESET + THIẾT LẬP CHUNG
 ========================================================= */
-
 *,
 *::before,
 *::after {
@@ -78,14 +61,10 @@ html {
 
 body {
   margin: 0;
-
   font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
-
   background: var(--color-bg);
   color: var(--color-text);
-
   line-height: 1.6;
-
   -webkit-font-smoothing: antialiased;
 }
 
@@ -114,38 +93,29 @@ button {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 .container {
   width: min(var(--container-width), calc(100% - 40px));
-
   margin: 0 auto;
 }
 
 /* =========================================================
    3. BUTTON
 ========================================================= */
-
 .btn {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   min-height: 44px;
-
   padding: 10px 20px;
-
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-
-  font-weight: 600;
   font-size: 14px;
-
+  font-weight: 600;
   cursor: pointer;
-
   transition:
     background var(--transition),
     border-color var(--transition),
@@ -171,27 +141,22 @@ img {
 .btn-primary {
   background: var(--color-primary);
   color: #ffffff;
-
   box-shadow: 0 4px 12px rgba(22, 140, 123, 0.18);
 }
 
 .btn-primary:hover {
   background: var(--color-primary-dark);
-
   box-shadow: 0 6px 18px rgba(22, 140, 123, 0.22);
 }
 
 .btn-outline {
   background: #ffffff;
-
   color: var(--color-primary);
-
   border-color: var(--color-border-strong);
 }
 
 .btn-outline:hover {
   background: var(--color-primary-light);
-
   border-color: #b9d7d1;
 }
 
@@ -200,19 +165,16 @@ img {
 }
 
 /* =========================================================
-   4. FORM
+   4. FORM DÙNG CHUNG
 ========================================================= */
-
 .form-group {
   display: flex;
   flex-direction: column;
-
   gap: 8px;
 }
 
 .form-group label {
   color: var(--color-text);
-
   font-size: 14px;
   font-weight: 600;
 }
@@ -221,18 +183,12 @@ img {
 .form-group select,
 .form-group textarea {
   width: 100%;
-
   padding: 11px 13px;
-
   color: var(--color-text);
-
   background: #ffffff;
-
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
-
   outline: none;
-
   transition:
     border-color var(--transition),
     box-shadow var(--transition),
@@ -249,7 +205,6 @@ img {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-primary);
-
   box-shadow: 0 0 0 3px rgba(22, 140, 123, 0.1);
 }
 
@@ -263,147 +218,14 @@ img {
 }
 
 /* =========================================================
-   5. TRANG CHỦ
+   5. TRANG ĐĂNG NHẬP
 ========================================================= */
-
-.main-header {
-  background: rgba(255, 255, 255, 0.96);
-
-  border-bottom: 1px solid var(--color-border);
-}
-
-.main-header .container {
-  min-height: 78px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 24px;
-}
-
-.brand h1 {
-  margin-bottom: 2px;
-
-  color: var(--color-primary-dark);
-
-  font-size: 20px;
-  font-weight: 700;
-
-  letter-spacing: 0.2px;
-}
-
-.brand p {
-  margin-bottom: 0;
-
-  color: var(--color-text-muted);
-
-  font-size: 14px;
-}
-
-.hero {
-  min-height: calc(100vh - 154px);
-
-  display: flex;
-  align-items: center;
-
-  padding: 72px 0;
-
-  background:
-    radial-gradient(
-      circle at 15% 30%,
-      rgba(22, 140, 123, 0.08),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 85% 70%,
-      rgba(74, 144, 217, 0.08),
-      transparent 30%
-    ),
-    linear-gradient(135deg, #f3faf8, #f8fbfd);
-}
-
-.hero-content {
-  display: grid;
-
-  grid-template-columns: minmax(0, 760px);
-
-  justify-content: center;
-
-  text-align: center;
-}
-
-.hero-label {
-  display: inline-block;
-
-  margin-bottom: 20px;
-
-  padding: 7px 15px;
-
-  color: var(--color-primary-dark);
-
-  background: var(--color-primary-light);
-
-  border: 1px solid #d5ebe6;
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.hero h2 {
-  margin-bottom: 20px;
-
-  color: var(--color-text-heading);
-
-  font-size: clamp(32px, 5vw, 52px);
-
-  font-weight: 700;
-
-  line-height: 1.16;
-
-  letter-spacing: -0.7px;
-}
-
-.hero p {
-  max-width: 680px;
-
-  margin: 0 auto 30px;
-
-  color: var(--color-text-muted);
-
-  font-size: 17px;
-}
-
-.main-footer {
-  padding: 20px;
-
-  color: var(--color-text-muted);
-
-  background: var(--color-surface);
-
-  border-top: 1px solid var(--color-border);
-
-  text-align: center;
-
-  font-size: 14px;
-}
-
-/* =========================================================
-   6. ĐĂNG NHẬP
-========================================================= */
-
 .auth-page {
   min-height: 100vh;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   padding: 28px;
-
   background:
     radial-gradient(
       circle at 15% 20%,
@@ -425,51 +247,38 @@ img {
 
 .login-card {
   padding: 38px;
-
   background: rgba(255, 255, 255, 0.98);
-
   border: 1px solid var(--color-border);
-
   border-radius: var(--radius-xl);
-
   box-shadow: var(--shadow-lg);
 }
 
 .login-header {
   margin-bottom: 30px;
-
   text-align: center;
 }
 
 .login-header h1 {
   margin-bottom: 8px;
-
-  color: var(--color-text-heading);
-
+  color: var(--color-heading);
   font-size: 30px;
 }
 
 .login-header p {
   margin-bottom: 0;
-
-  color: var(--color-text-muted);
+  color: var(--color-muted);
 }
 
 .login-card form {
   display: flex;
-
   flex-direction: column;
-
   gap: 18px;
 }
 
 .login-footer {
   margin-top: 24px;
-
-  text-align: center;
-
   color: var(--color-primary);
-
+  text-align: center;
   font-size: 14px;
 }
 
@@ -481,19 +290,10 @@ img {
   color: var(--color-primary-dark);
 }
 
-/* =========================================================
-   7. THÔNG BÁO ĐĂNG NHẬP
-========================================================= */
-
 .login-message {
   min-height: 24px;
-
-  margin-top: 0;
-
-  margin-bottom: 0;
-
+  margin: 0;
   text-align: center;
-
   font-size: 14px;
   font-weight: 500;
 }
@@ -511,11 +311,8 @@ img {
 }
 
 /* =========================================================
-   8. DASHBOARD
+   6. DASHBOARD - NỀN CHUNG
 ========================================================= */
-
-/* Ẩn dashboard trong lúc kiểm tra quyền */
-
 body.auth-checking .dashboard-header,
 body.auth-checking .dashboard-main {
   visibility: hidden;
@@ -523,81 +320,280 @@ body.auth-checking .dashboard-main {
 
 .dashboard-header {
   position: relative;
-
   z-index: 10;
-
   background: rgba(255, 255, 255, 0.98);
-
   border-bottom: 1px solid var(--color-border);
 }
 
-.dashboard-header .container {
-  min-height: 80px;
-
+.dashboard-header .container,
+.dashboard-topbar {
+  min-height: 82px;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 24px;
 }
 
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-brand-mark {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(22, 140, 123, 0.2);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-brand h1,
 .dashboard-header h1 {
   margin-bottom: 1px;
-
   color: var(--color-primary-dark);
-
   font-size: 20px;
 }
 
+.dashboard-brand p,
 .dashboard-header p {
   margin-bottom: 0;
-
-  color: var(--color-text-muted);
-
+  color: var(--color-muted);
   font-size: 14px;
 }
 
 .user-area {
   display: flex;
-
   align-items: center;
-
   gap: 14px;
 }
 
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.35;
+}
+
+.user-info-label {
+  color: var(--color-light);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-info strong,
 #currentUser {
   color: var(--color-text);
-
   font-size: 14px;
   font-weight: 600;
 }
 
 .dashboard-main {
-  min-height: calc(100vh - 80px);
-
+  min-height: calc(100vh - 82px);
   padding: 36px 0 64px;
-
   background: linear-gradient(180deg, #f5f9f8 0%, #f8fbfa 100%);
 }
 
-/* =========================================================
-   9. CARD
-========================================================= */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
 
+.dashboard-sidebar {
+  position: sticky;
+  top: 24px;
+  padding: 22px 16px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-heading {
+  padding: 0 10px 15px;
+  color: var(--color-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--color-muted);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+
+.dashboard-nav-item:hover {
+  color: var(--color-primary-dark);
+  background: #f3f9f7;
+}
+
+.dashboard-nav-item.active {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: #c9d7d3;
+  border-radius: 50%;
+}
+
+.dashboard-nav-item.active .nav-dot {
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(22, 140, 123, 0.1);
+}
+
+.sidebar-note {
+  margin-top: 22px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f2faf8, #f7fbfc);
+  border: 1px solid #e0efeb;
+  border-radius: 12px;
+}
+
+.sidebar-note strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-heading);
+  font-size: 13px;
+}
+
+.sidebar-note p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.dashboard-content {
+  min-width: 0;
+}
+
+.dashboard-welcome {
+  position: relative;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-bottom: 26px;
+  padding: 34px 38px;
+  background: linear-gradient(120deg, #e9f7f3 0%, #f4faf9 48%, #eef6fc 100%);
+  border: 1px solid #dcebe7;
+  border-radius: var(--radius-lg);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.welcome-label {
+  display: inline-block;
+  margin-bottom: 11px;
+  color: var(--color-primary-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.dashboard-welcome h2 {
+  margin-bottom: 10px;
+  color: var(--color-heading);
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+}
+
+.dashboard-welcome p {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.welcome-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.welcome-decoration span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.welcome-decoration span:nth-child(1) {
+  width: 170px;
+  height: 170px;
+  top: -55px;
+  right: -20px;
+  background: rgba(74, 144, 217, 0.09);
+}
+
+.welcome-decoration span:nth-child(2) {
+  width: 105px;
+  height: 105px;
+  right: 80px;
+  bottom: -40px;
+  background: rgba(22, 140, 123, 0.1);
+}
+
+.welcome-decoration span:nth-child(3) {
+  width: 46px;
+  height: 46px;
+  top: 66px;
+  right: 55px;
+  background: rgba(245, 185, 66, 0.17);
+}
+
+/* =========================================================
+   7. DASHBOARD - CARD + FORM NHIỆM VỤ
+========================================================= */
 .card {
   margin-bottom: 26px;
-
   padding: 30px;
-
   background: var(--color-surface);
-
   border: 1px solid var(--color-border);
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-sm);
-
   transition:
     box-shadow var(--transition),
     border-color var(--transition);
@@ -605,57 +601,60 @@ body.auth-checking .dashboard-main {
 
 .card:hover {
   border-color: #d8e5e1;
-
   box-shadow: var(--shadow-md);
+}
+
+.dashboard-card {
+  scroll-margin-top: 24px;
 }
 
 .section-header {
   margin-bottom: 26px;
 }
 
+.section-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
 .section-header h2 {
   margin-bottom: 5px;
-
-  color: var(--color-text-heading);
-
+  color: var(--color-heading);
   font-size: 22px;
   font-weight: 700;
 }
 
 .section-header p {
   margin-bottom: 0;
-
-  color: var(--color-text-muted);
-
+  color: var(--color-muted);
   font-size: 14px;
 }
 
-/* =========================================================
-   10. FORM GIAO NHIỆM VỤ
-========================================================= */
-
 .task-form {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 21px 24px;
 }
 
-.form-group-full {
-  grid-column: 1 / -1;
-}
-
+.form-group-full,
 .form-actions {
   grid-column: 1 / -1;
 }
 
 .task-message {
   min-height: 24px;
-
-  margin-top: 10px;
-  margin-bottom: 0;
-
+  margin: 10px 0 0;
   font-size: 14px;
   font-weight: 500;
 }
@@ -673,37 +672,31 @@ body.auth-checking .dashboard-main {
 }
 
 /* =========================================================
-   11. BẢNG NHIỆM VỤ
+   8. DASHBOARD - BẢNG NHIỆM VỤ
 ========================================================= */
-
 .table-wrapper {
   width: 100%;
-
   overflow-x: auto;
-
   border: 1px solid var(--color-border);
-
   border-radius: var(--radius-md);
+}
+
+.dashboard-card .table-wrapper {
+  margin-top: 4px;
 }
 
 .task-table {
   width: 100%;
-
   min-width: 820px;
-
   border-collapse: collapse;
-
   background: #ffffff;
 }
 
 .task-table th,
 .task-table td {
   padding: 15px 16px;
-
   border-bottom: 1px solid #edf2f0;
-
   text-align: left;
-
   vertical-align: top;
 }
 
@@ -713,19 +706,14 @@ body.auth-checking .dashboard-main {
 
 .task-table th {
   background: #f5f9f8;
-
   color: #536779;
-
   font-size: 13px;
-
   font-weight: 700;
-
   letter-spacing: 0.1px;
 }
 
 .task-table td {
   color: #34475a;
-
   font-size: 14px;
 }
 
@@ -739,15 +727,9 @@ body.auth-checking .dashboard-main {
 
 .empty-message {
   padding: 34px !important;
-
-  color: var(--color-text-light) !important;
-
+  color: var(--color-light) !important;
   text-align: center !important;
 }
-
-/* =========================================================
-   12. NÚT XÓA
-========================================================= */
 
 .task-actions {
   white-space: nowrap;
@@ -755,22 +737,14 @@ body.auth-checking .dashboard-main {
 
 .btn-delete {
   min-height: 36px;
-
   padding: 7px 12px;
-
   color: var(--color-danger);
-
   background: var(--color-danger-bg);
-
   border: 1px solid #f3cccc;
-
   border-radius: var(--radius-sm);
-
   font-size: 13px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     background var(--transition),
     border-color var(--transition);
@@ -778,33 +752,236 @@ body.auth-checking .dashboard-main {
 
 .btn-delete:hover {
   background: #ffe8e8;
-
   border-color: #eeb4b4;
 }
 
 .btn-delete:disabled {
   opacity: 0.6;
-
   cursor: not-allowed;
 }
 
 /* =========================================================
-   13. ACCESSIBILITY
+   9. TRANG CỔNG - INDEX.HTML
 ========================================================= */
+.portal-home {
+  min-height: 100vh;
+  background: #ffffff;
+}
 
+.portal-main {
+  background: #ffffff;
+}
+
+/* Banner là phần đầu tiên của trang */
+.portal-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #dff5ff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.portal-banner-inner {
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.portal-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Nút đăng nhập duy nhất, đặt trên banner */
+.portal-banner-login {
+  position: absolute;
+  right: 28px;
+  bottom: 18px;
+  z-index: 5;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  color: #ffffff;
+  background: rgba(15, 126, 111, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(19, 72, 68, 0.22);
+  backdrop-filter: blur(5px);
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.portal-banner-login:hover {
+  color: #ffffff;
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(19, 72, 68, 0.28);
+}
+
+/* Sau banner đi thẳng vào 3 chức năng, không có tiêu đề lặp */
+.portal-functions {
+  padding: 36px 0 52px;
+  background: #ffffff;
+}
+
+.portal-function-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.portal-function-card {
+  min-height: 185px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.portal-function-card:hover {
+  transform: translateY(-4px);
+  border-color: #cedfda;
+  box-shadow: var(--shadow-md);
+}
+
+.portal-function-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.portal-function-icon.blue {
+  color: #326fa5;
+  background: var(--color-secondary-light);
+}
+
+.portal-function-icon.warm {
+  color: #9a6b0b;
+  background: #fff6db;
+}
+
+.portal-function-card h1,
+.portal-function-card h2 {
+  margin-bottom: 8px;
+  color: var(--color-heading);
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.portal-function-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Footer */
+.portal-footer {
+  padding: 28px 0;
+  color: #bad0cc;
+  background: #173f43;
+}
+
+.portal-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.portal-footer-inner > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.portal-footer strong {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.portal-footer span {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.portal-footer p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+/* =========================================================
+   10. ACCESSIBILITY
+========================================================= */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid rgba(22, 140, 123, 0.18);
-
   outline-offset: 2px;
 }
 
 /* =========================================================
-   14. TABLET
+   11. RESPONSIVE - TABLET
 ========================================================= */
+@media (max-width: 1000px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    position: static;
+    padding: 14px;
+  }
+
+  .sidebar-heading,
+  .sidebar-note {
+    display: none;
+  }
+
+  .dashboard-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .dashboard-nav-item {
+    justify-content: center;
+  }
+
+  .portal-function-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portal-function-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+ 
+}
 
 @media (max-width: 900px) {
   .container {
@@ -821,54 +998,74 @@ textarea:focus-visible {
 }
 
 /* =========================================================
-   15. MOBILE
+   12. RESPONSIVE - MOBILE
 ========================================================= */
-
 @media (max-width: 700px) {
   .container {
     width: calc(100% - 28px);
   }
 
-  .main-header .container,
-  .dashboard-header .container {
+  .auth-page {
+    padding: 18px;
+  }
+
+  .login-card {
+    padding: 30px 22px;
+  }
+
+  .dashboard-header .container,
+  .dashboard-topbar {
     align-items: flex-start;
-
     flex-direction: column;
-
     gap: 14px;
-
     padding-top: 16px;
     padding-bottom: 16px;
   }
 
-  .main-header .btn {
+  .dashboard-brand {
     width: 100%;
   }
 
+  .dashboard-header .user-area,
   .user-area {
     width: 100%;
-
+    align-items: center;
     justify-content: space-between;
-
+    flex-direction: row;
     gap: 10px;
   }
 
-  .hero {
-    min-height: auto;
-
-    padding: 64px 0;
-  }
-
-  .hero h2 {
-    font-size: clamp(30px, 10vw, 42px);
-  }
-
-  .hero p {
-    font-size: 16px;
+  .user-info {
+    align-items: flex-start;
   }
 
   .dashboard-main {
     padding: 24px 0 44px;
+  }
+
+  .dashboard-layout {
+    gap: 18px;
+  }
+
+  .dashboard-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-nav-item {
+    justify-content: flex-start;
+  }
+
+  .dashboard-welcome {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .welcome-decoration {
+    opacity: 0.6;
+  }
+
+  .dashboard-welcome h2 {
+    font-size: 25px;
   }
 
   .task-form {
@@ -882,9 +1079,7 @@ textarea:focus-visible {
 
   .card {
     margin-bottom: 18px;
-
     padding: 20px;
-
     border-radius: var(--radius-md);
   }
 
@@ -896,527 +1091,61 @@ textarea:focus-visible {
     font-size: 20px;
   }
 
-  .login-card {
-    padding: 30px 22px;
+  .portal-banner-login {
+    right: 12px;
+    bottom: 10px;
+    min-height: 38px;
+    padding: 7px 13px;
+    border-radius: 9px;
+    font-size: 11px;
   }
 
-  .auth-page {
-    padding: 18px;
+  .portal-functions {
+    padding: 28px 0 42px;
+  }
+
+  .portal-function-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-function-card,
+  .portal-function-card:last-child {
+    grid-column: auto;
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .portal-role-section {
+    padding: 52px 0;
+  }
+
+  .portal-footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
 /* =========================================================
-   16. MOBILE NHỎ
+   13. RESPONSIVE - MOBILE NHỎ
 ========================================================= */
-
 @media (max-width: 420px) {
   .container {
     width: calc(100% - 24px);
-  }
-
-  .user-area {
-    align-items: stretch;
-
-    flex-direction: column;
-  }
-
-  .user-area .btn {
-    width: 100%;
   }
 
   .login-card {
     padding: 26px 18px;
   }
 
-  .hero {
-    padding: 52px 0;
-  }
-
-  .card {
-    padding: 18px;
-  }
-}
-/* =========================================================
-   ĐỢT 2
-   DASHBOARD APPLICATION LAYOUT
-========================================================= */
-
-/* =========================
-   TOP BAR
-========================= */
-
-.dashboard-topbar {
-  min-height: 82px;
-}
-
-.dashboard-brand {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-}
-
-.dashboard-brand-mark {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-
-  border-radius: 12px;
-
-  font-size: 13px;
-  font-weight: 800;
-
-  letter-spacing: 0.5px;
-
-  box-shadow: 0 5px 14px rgba(22, 140, 123, 0.2);
-}
-
-.dashboard-brand h1 {
-  margin-bottom: 1px;
-}
-
-.dashboard-brand p {
-  margin-bottom: 0;
-}
-
-/* =========================
-   USER AREA
-========================= */
-
-.user-info {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-end;
-
-  line-height: 1.35;
-}
-
-.user-info-label {
-  color: var(--color-text-light);
-
-  font-size: 11px;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.5px;
-}
-
-.user-info strong {
-  color: var(--color-text);
-
-  font-size: 14px;
-}
-
-/* =========================
-   DASHBOARD LAYOUT
-========================= */
-
-.dashboard-layout {
-  display: grid;
-
-  grid-template-columns: 235px minmax(0, 1fr);
-
-  gap: 28px;
-
-  align-items: start;
-}
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.dashboard-sidebar {
-  position: sticky;
-
-  top: 24px;
-
-  padding: 22px 16px;
-
-  background: #ffffff;
-
-  border: 1px solid var(--color-border);
-
-  border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow-sm);
-}
-
-.sidebar-heading {
-  padding: 0 10px 15px;
-
-  color: var(--color-text-light);
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 0.7px;
-}
-
-.dashboard-nav {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 5px;
-}
-
-.dashboard-nav-item {
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-  min-height: 44px;
-
-  padding: 10px 12px;
-
-  color: var(--color-text-muted);
-
-  border-radius: 10px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition:
-    color var(--transition),
-    background var(--transition);
-}
-
-.dashboard-nav-item:hover {
-  color: var(--color-primary-dark);
-
-  background: #f3f9f7;
-}
-
-.dashboard-nav-item.active {
-  color: var(--color-primary-dark);
-
-  background: var(--color-primary-light);
-}
-
-.nav-dot {
-  width: 8px;
-  height: 8px;
-
-  flex-shrink: 0;
-
-  background: #c9d7d3;
-
-  border-radius: 50%;
-}
-
-.dashboard-nav-item.active .nav-dot {
-  background: var(--color-primary);
-
-  box-shadow: 0 0 0 4px rgba(22, 140, 123, 0.1);
-}
-
-.sidebar-note {
-  margin-top: 22px;
-
-  padding: 16px;
-
-  background: linear-gradient(135deg, #f2faf8, #f7fbfc);
-
-  border: 1px solid #e0efeb;
-
-  border-radius: 12px;
-}
-
-.sidebar-note strong {
-  display: block;
-
-  margin-bottom: 5px;
-
-  color: var(--color-text-heading);
-
-  font-size: 13px;
-}
-
-.sidebar-note p {
-  margin-bottom: 0;
-
-  color: var(--color-text-muted);
-
-  font-size: 12px;
-
-  line-height: 1.55;
-}
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
-.dashboard-content {
-  min-width: 0;
-}
-
-/* =========================
-   WELCOME PANEL
-========================= */
-
-.dashboard-welcome {
-  position: relative;
-
-  min-height: 190px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  overflow: hidden;
-
-  margin-bottom: 26px;
-
-  padding: 34px 38px;
-
-  background: linear-gradient(120deg, #e9f7f3 0%, #f4faf9 48%, #eef6fc 100%);
-
-  border: 1px solid #dcebe7;
-
-  border-radius: var(--radius-lg);
-}
-
-.welcome-content {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 650px;
-}
-
-.welcome-label {
-  display: inline-block;
-
-  margin-bottom: 11px;
-
-  color: var(--color-primary-dark);
-
-  font-size: 11px;
-  font-weight: 800;
-
-  letter-spacing: 0.8px;
-}
-
-.dashboard-welcome h2 {
-  margin-bottom: 10px;
-
-  color: var(--color-text-heading);
-
-  font-size: clamp(25px, 3vw, 34px);
-
-  line-height: 1.2;
-}
-
-.dashboard-welcome p {
-  max-width: 620px;
-
-  margin-bottom: 0;
-
-  color: var(--color-text-muted);
-
-  font-size: 15px;
-}
-
-/* Trang trí nền */
-
-.welcome-decoration {
-  position: absolute;
-
-  top: 0;
-  right: 0;
-
-  width: 260px;
-  height: 100%;
-
-  pointer-events: none;
-}
-
-.welcome-decoration span {
-  position: absolute;
-
-  display: block;
-
-  border-radius: 50%;
-}
-
-.welcome-decoration span:nth-child(1) {
-  width: 170px;
-  height: 170px;
-
-  top: -55px;
-  right: -20px;
-
-  background: rgba(74, 144, 217, 0.09);
-}
-
-.welcome-decoration span:nth-child(2) {
-  width: 105px;
-  height: 105px;
-
-  right: 80px;
-  bottom: -40px;
-
-  background: rgba(22, 140, 123, 0.1);
-}
-
-.welcome-decoration span:nth-child(3) {
-  width: 46px;
-  height: 46px;
-
-  top: 66px;
-  right: 55px;
-
-  background: rgba(245, 185, 66, 0.17);
-}
-
-/* =========================
-   DASHBOARD CARDS
-========================= */
-
-.dashboard-card {
-  scroll-margin-top: 24px;
-}
-
-.section-header-row {
-  display: flex;
-
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-.section-eyebrow {
-  display: block;
-
-  margin-bottom: 5px;
-
-  color: var(--color-primary);
-
-  font-size: 11px;
-  font-weight: 800;
-
-  letter-spacing: 0.7px;
-}
-
-/* =========================
-   DASHBOARD TABLE
-========================= */
-
-.dashboard-card .table-wrapper {
-  margin-top: 4px;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
-  .dashboard-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-sidebar {
-    position: static;
-
-    padding: 14px;
-  }
-
-  .sidebar-heading,
-  .sidebar-note {
-    display: none;
-  }
-
-  .dashboard-nav {
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 8px;
-  }
-
-  .dashboard-nav-item {
-    justify-content: center;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-  .dashboard-brand {
-    width: 100%;
-  }
-
-  .dashboard-header .user-area {
-    align-items: center;
-
-    flex-direction: row;
-  }
-
-  .user-info {
-    align-items: flex-start;
-  }
-
-  .dashboard-layout {
-    gap: 18px;
-  }
-
-  .dashboard-welcome {
-    min-height: auto;
-
-    padding: 28px 22px;
-  }
-
-  .welcome-decoration {
-    opacity: 0.6;
-  }
-
-  .dashboard-welcome h2 {
-    font-size: 25px;
-  }
-
-  .dashboard-nav {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-nav-item {
-    justify-content: flex-start;
-  }
-}
-
-/* =========================
-   MOBILE NHỎ
-========================= */
-
-@media (max-width: 420px) {
-  .dashboard-header .user-area {
+  .dashboard-header .user-area,
+  .user-area {
     align-items: stretch;
-
     flex-direction: column;
   }
 
-  .user-info {
-    align-items: flex-start;
+  .user-area .btn {
+    width: 100%;
   }
 
   .dashboard-welcome {
@@ -1425,5 +1154,1246 @@ textarea:focus-visible {
 
   .welcome-decoration {
     display: none;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .portal-banner-login {
+    right: 8px;
+    bottom: 7px;
+    min-height: 34px;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .portal-function-card {
+    gap: 14px;
+  }
+
+  .portal-role-item {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   14. DASHBOARD - HỆ THỐNG TAB QUẢN TRỊ
+   Bổ sung cho dashboard mới, không thay đổi logic Firebase
+========================================================= */
+.dashboard-nav-item {
+  width: 100%;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-icon {
+  width: 29px;
+  height: 29px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #71868e;
+  background: #f0f5f4;
+  border: 1px solid #e1ebe8;
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.dashboard-nav-item.active .nav-icon {
+  color: #ffffff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 5px 12px rgba(22, 140, 123, 0.18);
+}
+
+.admin-tab-panel[hidden] {
+  display: none !important;
+}
+
+.admin-tab-panel.active {
+  animation: adminTabFade 0.18s ease;
+}
+
+@keyframes adminTabFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 4px 2px;
+}
+
+.page-section-heading h2 {
+  margin-bottom: 7px;
+  color: var(--color-heading);
+  font-size: clamp(25px, 3vw, 31px);
+  line-height: 1.2;
+}
+
+.page-section-heading p {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* =========================================================
+   15. DASHBOARD TỔNG QUAN - KHUNG GIAO DIỆN
+========================================================= */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.overview-card {
+  min-height: 155px;
+  padding: 23px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.overview-card-primary {
+  background: linear-gradient(145deg, #ffffff, #f1faf7);
+}
+
+.overview-card-blue {
+  background: linear-gradient(145deg, #ffffff, #f1f7fd);
+}
+
+.overview-card-warm {
+  background: linear-gradient(145deg, #ffffff, #fff9e9);
+}
+
+.overview-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.overview-card-label {
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.overview-card-badge,
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 27px;
+  padding: 4px 9px;
+  color: #688079;
+  background: #f2f7f5;
+  border: 1px solid #e1ebe7;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.overview-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-heading);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.overview-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.dashboard-placeholder-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+  gap: 18px;
+}
+
+.dashboard-placeholder-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.dashboard-placeholder {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #8b9ca5;
+  background:
+    linear-gradient(135deg, rgba(22, 140, 123, 0.035), rgba(74, 144, 217, 0.04)),
+    #fbfdfc;
+  border: 1px dashed #ceddda;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dashboard-placeholder.large {
+  min-height: 318px;
+}
+
+/* =========================================================
+   16. CÁC ĐIỂM TRƯỜNG - KHUNG GIAO DIỆN
+========================================================= */
+.management-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 170px;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.management-search-placeholder,
+.management-filter-placeholder {
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  padding: 10px 13px;
+  color: #99a7b3;
+  background: #ffffff;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.management-filter-placeholder {
+  justify-content: space-between;
+  color: var(--color-muted);
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campus-card {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 15px;
+}
+
+.campus-card.soft {
+  background: #fbfdfd;
+}
+
+.campus-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.campus-card-mark {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.campus-card h3 {
+  margin-bottom: 7px;
+  color: var(--color-heading);
+  font-size: 17px;
+}
+
+.campus-card p {
+  margin-bottom: 20px;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.campus-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-top: 16px;
+  border-top: 1px solid #edf2f0;
+}
+
+.campus-card-actions .btn,
+.campus-card-actions .btn-delete {
+  min-height: 37px;
+}
+
+/* =========================================================
+   17. PHẢN ÁNH VỤ VIỆC - KHUNG GIAO DIỆN
+========================================================= */
+.report-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.filter-field-placeholder {
+  min-height: 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 12px 14px;
+  background: #f9fbfb;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+}
+
+.filter-field-placeholder span {
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.filter-field-placeholder strong {
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.report-list-placeholder {
+  display: grid;
+  gap: 12px;
+}
+
+.report-item-placeholder {
+  display: grid;
+  grid-template-columns: 6px minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+}
+
+.report-item-status {
+  width: 6px;
+  min-height: 100%;
+  border-radius: 999px;
+}
+
+.report-item-status-warm {
+  background: var(--color-accent);
+}
+
+.report-item-status-blue {
+  background: var(--color-secondary);
+}
+
+.report-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 7px;
+  color: var(--color-light);
+  font-size: 11px;
+}
+
+.report-item-placeholder h3 {
+  margin-bottom: 6px;
+  color: var(--color-heading);
+  font-size: 15px;
+}
+
+.report-item-placeholder p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   18. RESPONSIVE CHO HỆ THỐNG TAB QUẢN TRỊ
+========================================================= */
+@media (max-width: 1000px) {
+  .dashboard-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dashboard-nav-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-placeholder-grid,
+  .campus-grid,
+  .report-filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-placeholder.large {
+    min-height: 220px;
+  }
+
+  .management-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-nav-item {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .page-section-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .page-section-heading .btn {
+    width: 100%;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card:last-child {
+    grid-column: auto;
+  }
+
+  .report-item-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboard-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-icon {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+/* =========================================================
+   19. ĐIỂM TRƯỜNG - CRUD FIRESTORE
+   Quản lý tên điểm trường
+========================================================= */
+.campus-editor-card[hidden] {
+  display: none !important;
+}
+
+.campus-editor-card {
+  margin-bottom: 24px;
+  border-color: #cfe6e1;
+  box-shadow: 0 10px 30px rgba(35, 68, 73, 0.07);
+}
+
+.campus-editor-header {
+  margin-bottom: 20px;
+}
+
+.campus-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px 18px;
+  align-items: end;
+}
+
+.campus-form-name {
+  min-width: 0;
+}
+
+.campus-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.campus-message {
+  grid-column: 1 / -1;
+  min-height: 22px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campus-message.info {
+  color: var(--color-info);
+}
+
+.campus-message.success {
+  color: var(--color-success);
+}
+
+.campus-message.error {
+  color: var(--color-danger);
+}
+
+.campus-toolbar {
+  grid-template-columns: minmax(0, 1fr) 120px;
+  align-items: end;
+}
+
+.campus-search-group {
+  gap: 0;
+}
+
+.campus-search-group input {
+  min-height: 43px;
+}
+
+.campus-total {
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  color: var(--color-muted);
+  background: #f8fbfa;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+
+.campus-total strong {
+  color: var(--color-primary-dark);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.campus-state-message {
+  grid-column: 1 / -1;
+  padding: 40px 20px;
+  color: var(--color-light);
+  background: #fbfdfd;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: 14px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.campus-state-message.error {
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+  border-color: #f1caca;
+}
+
+.campus-card {
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.campus-card:hover {
+  transform: translateY(-2px);
+  border-color: #cfe0dc;
+  box-shadow: var(--shadow-sm);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 800px) {
+  .campus-form {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-form-actions {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .campus-form-actions .btn {
+    flex: 1 1 160px;
+  }
+
+  .campus-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .campus-form-actions {
+    flex-direction: column;
+  }
+
+  .campus-form-actions .btn {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* =========================================================
+   20. BƯỚC 2 - HEADER + KHU VỰC QUẢN LÝ ĐIỂM TRƯỜNG
+========================================================= */
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-home-button {
+  gap: 7px;
+  color: var(--color-text);
+}
+
+.btn-soft {
+  min-height: 37px;
+  padding: 8px 14px;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border: 1px solid #cbe5df;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.btn-soft:hover {
+  background: #dcf1ec;
+  border-color: #b7dcd3;
+  transform: translateY(-1px);
+}
+
+.campus-detail-card[hidden] {
+  display: none !important;
+}
+
+.campus-detail-card {
+  margin-bottom: 24px;
+  border-color: #cfe4df;
+  box-shadow: 0 12px 34px rgba(35, 68, 73, 0.07);
+}
+
+.campus-detail-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.campus-detail-heading h2 {
+  margin-bottom: 6px;
+  color: var(--color-heading);
+  font-size: 24px;
+}
+
+.campus-detail-heading p {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.campus-detail-account {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 15px;
+  align-items: start;
+  margin-bottom: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f1faf7, #f8fcfb);
+  border: 1px solid #d9ece7;
+  border-radius: 14px;
+}
+
+.campus-detail-account-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-dark);
+  background: #ffffff;
+  border: 1px solid #d7e9e4;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.campus-detail-account span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.campus-detail-account strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-heading);
+  font-size: 16px;
+}
+
+.campus-detail-account p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.campus-module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.campus-module-card {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  padding: 17px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+}
+
+.campus-module-index {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.campus-module-card h3 {
+  margin-bottom: 5px;
+  color: var(--color-heading);
+  font-size: 14px;
+}
+
+.campus-module-card p {
+  margin-bottom: 14px;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.campus-module-status {
+  margin-top: auto;
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   21. HỘP THOẠI + THÔNG BÁO DÙNG CHUNG
+========================================================= */
+body.dialog-open {
+  overflow: hidden;
+}
+
+.admin-dialog-backdrop[hidden] {
+  display: none !important;
+}
+
+.admin-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(22, 42, 49, 0.42);
+  backdrop-filter: blur(4px);
+  animation: adminBackdropIn 0.18s ease;
+}
+
+.admin-dialog {
+  width: min(100%, 470px);
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid rgba(214, 228, 224, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(24, 58, 62, 0.2);
+  animation: adminDialogIn 0.2s ease;
+}
+
+.admin-dialog-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17px;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.admin-dialog[data-tone="danger"] .admin-dialog-icon {
+  color: #b63c3c;
+  background: #fff0f0;
+}
+
+.admin-dialog-content h2 {
+  margin-bottom: 8px;
+  color: var(--color-heading);
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.admin-dialog-content > p {
+  margin-bottom: 0;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.admin-dialog-detail {
+  margin-top: 9px !important;
+  color: var(--color-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.6;
+}
+
+.admin-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #edf2f0;
+}
+
+.admin-dialog-confirm {
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #ffffff;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-dialog[data-tone="danger"] .admin-dialog-confirm {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.admin-dialog[data-tone="danger"] .admin-dialog-confirm:hover {
+  background: #c94242;
+}
+
+.admin-toast-region {
+  position: fixed;
+  top: 96px;
+  right: 24px;
+  z-index: 2100;
+  width: min(380px, calc(100vw - 32px));
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.admin-toast {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 11px;
+  align-items: center;
+  padding: 13px 15px;
+  opacity: 0;
+  transform: translateY(-8px);
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+  box-shadow: 0 14px 34px rgba(29, 64, 67, 0.14);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.admin-toast-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.admin-toast.error .admin-toast-icon {
+  color: #b63c3c;
+  background: #fff0f0;
+}
+
+.admin-toast.info .admin-toast-icon {
+  color: #2f6f9d;
+  background: #edf5fc;
+}
+
+.admin-toast-text {
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+@keyframes adminBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes adminDialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1000px) {
+  .campus-module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-header-actions {
+    width: 100%;
+  }
+
+  .dashboard-header-actions .btn {
+    flex: 1 1 0;
+  }
+
+  .campus-detail-heading {
+    flex-direction: column;
+  }
+
+  .campus-detail-heading .btn {
+    width: 100%;
+  }
+
+  .campus-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-toast-region {
+    top: 14px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header-actions {
+    flex-direction: column;
+  }
+
+  .dashboard-header-actions .btn {
+    width: 100%;
+  }
+
+  .admin-dialog {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .admin-dialog-actions {
+    flex-direction: column-reverse;
+  }
+
+  .admin-dialog-actions .btn,
+  .admin-dialog-confirm {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   22. BƯỚC 3 - TÀI KHOẢN ĐIỂM TRƯỜNG
+========================================================= */
+.campus-account-panel {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f1faf7, #f8fcfb);
+  border: 1px solid #d9ece7;
+  border-radius: 15px;
+}
+
+.campus-account-summary {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 15px;
+  align-items: start;
+}
+
+.campus-account-summary-content {
+  min-width: 0;
+}
+
+.campus-account-label {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.campus-account-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 5px;
+}
+
+.campus-account-title-row strong {
+  color: var(--color-heading);
+  font-size: 17px;
+}
+
+.campus-account-summary-content > p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.campus-account-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.campus-account-status.pending {
+  color: #866411;
+  background: #fff6db;
+  border: 1px solid #f4df9f;
+}
+
+.campus-account-status.active {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border: 1px solid #c9e5de;
+}
+
+.campus-account-status.inactive,
+.campus-account-status.error {
+  color: #b63c3c;
+  background: #fff0f0;
+  border: 1px solid #f1cccc;
+}
+
+.campus-account-existing[hidden],
+.campus-account-form[hidden] {
+  display: none !important;
+}
+
+.campus-account-existing,
+.campus-account-form {
+  margin-top: 18px;
+  margin-left: 61px;
+  padding-top: 18px;
+  border-top: 1px solid #dcebe7;
+}
+
+.campus-account-info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(160px, 0.6fr);
+  gap: 12px;
+}
+
+.campus-account-info-item {
+  min-width: 0;
+  padding: 13px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+}
+
+.campus-account-info-item span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--color-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.campus-account-info-item strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+.campus-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.campus-account-note,
+.campus-account-helper {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.campus-account-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 14px;
+  align-items: end;
+}
+
+.campus-account-form-actions {
+  display: flex;
+  align-items: center;
+}
+
+.campus-account-helper,
+.campus-account-message {
+  grid-column: 1 / -1;
+}
+
+.campus-account-message {
+  min-height: 20px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.campus-account-message.info {
+  color: var(--color-info);
+}
+
+.campus-account-message.success {
+  color: var(--color-success);
+}
+
+.campus-account-message.error {
+  color: var(--color-danger);
+}
+
+@media (max-width: 700px) {
+  .campus-account-existing,
+  .campus-account-form {
+    margin-left: 0;
+  }
+
+  .campus-account-info-grid,
+  .campus-account-form {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-account-form-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .campus-account-panel {
+    padding: 17px;
+  }
+
+  .campus-account-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-account-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-account-actions .btn {
+    width: 100%;
   }
 }

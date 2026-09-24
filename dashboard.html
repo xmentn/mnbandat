@@ -2,223 +2,594 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Quản lý công việc | Trường Mầm non</title>
-
+    <title>Quản trị | Trường Mầm non Tân Khánh 2</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body class="auth-checking">
-    <!-- =========================
-         HEADER DASHBOARD
-    ========================== -->
-
+    <!-- ==================================================
+         HEADER KHU VỰC QUẢN TRỊ
+    =================================================== -->
     <header class="dashboard-header">
       <div class="container dashboard-topbar">
-        <a href="index.html" class="dashboard-brand">
+        <a href="index.html" class="dashboard-brand" aria-label="Về trang chủ">
           <div class="dashboard-brand-mark">MN</div>
 
           <div>
-            <h1>TRƯỜNG MẦM NON</h1>
-            <p>Hệ thống quản lý nhà trường</p>
+            <h1>TRƯỜNG MẦM NON TÂN KHÁNH 2</h1>
+            <p>Hệ thống quản lý và điều hành nhà trường</p>
           </div>
         </a>
 
         <div class="user-area">
           <div class="user-info">
             <span class="user-info-label">Đang đăng nhập</span>
-
-            <strong id="currentUser"> Ban Giám hiệu </strong>
+            <strong id="currentUser">Ban Giám hiệu</strong>
           </div>
 
-          <button type="button" class="btn btn-outline" id="logoutButton">
-            Đăng xuất
-          </button>
+          <div class="dashboard-header-actions">
+            <a href="index.html" class="btn btn-outline dashboard-home-button">
+              <span aria-hidden="true">←</span>
+              <span>Về trang chủ</span>
+            </a>
+
+            <button type="button" class="btn btn-outline" id="logoutButton">
+              Đăng xuất
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- =========================
-         NỘI DUNG DASHBOARD
-    ========================== -->
-
+    <!-- ==================================================
+         NỘI DUNG KHU VỰC QUẢN TRỊ
+    =================================================== -->
     <main class="dashboard-main">
       <div class="container dashboard-layout">
         <!-- =====================
-             SIDEBAR
+             THANH ĐIỀU HƯỚNG
         ====================== -->
-
         <aside class="dashboard-sidebar">
           <div class="sidebar-heading">KHU VỰC BAN GIÁM HIỆU</div>
 
-          <nav class="dashboard-nav">
-            <a href="#dashboard-overview" class="dashboard-nav-item active">
-              <span class="nav-dot"></span>
-              Tổng quan
-            </a>
+          <nav class="dashboard-nav" aria-label="Chức năng quản trị">
+            <button
+              type="button"
+              class="dashboard-nav-item active"
+              data-admin-tab="overview"
+              aria-selected="true"
+            >
+              <span class="nav-icon">01</span>
+              <span>Tổng quan</span>
+            </button>
 
-            <a href="#task-create" class="dashboard-nav-item">
-              <span class="nav-dot"></span>
-              Giao nhiệm vụ
-            </a>
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-admin-tab="campuses"
+              aria-selected="false"
+            >
+              <span class="nav-icon">02</span>
+              <span>Các điểm trường</span>
+            </button>
 
-            <a href="#task-list-section" class="dashboard-nav-item">
-              <span class="nav-dot"></span>
-              Danh sách nhiệm vụ
-            </a>
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-admin-tab="tasks"
+              aria-selected="false"
+            >
+              <span class="nav-icon">03</span>
+              <span>Giao nhiệm vụ</span>
+            </button>
+
+            <button
+              type="button"
+              class="dashboard-nav-item"
+              data-admin-tab="reports"
+              aria-selected="false"
+            >
+              <span class="nav-icon">04</span>
+              <span>Phản ánh vụ việc</span>
+            </button>
           </nav>
 
           <div class="sidebar-note">
-            <strong>Quản lý công việc</strong>
-
-            <p>Theo dõi và giao nhiệm vụ cho giáo viên trong nhà trường.</p>
+            <strong>Khu vực quản trị</strong>
+            <p>
+              Quản lý thông tin điều hành dành cho Ban Giám hiệu. Các chức năng
+              sẽ được hoàn thiện theo từng đợt.
+            </p>
           </div>
         </aside>
 
         <!-- =====================
-             NỘI DUNG CHÍNH
+             NỘI DUNG TỪNG TAB
         ====================== -->
-
         <div class="dashboard-content">
-          <!-- TỔNG QUAN -->
+          <!-- TAB 1: DASHBOARD TỔNG QUAN -->
+          <section
+            class="admin-tab-panel active"
+            id="admin-tab-overview"
+            data-admin-panel="overview"
+          >
+            <section class="dashboard-welcome">
+              <div class="welcome-content">
+                <span class="welcome-label">BAN GIÁM HIỆU</span>
+                <h2>Dashboard tổng quan</h2>
+                <p>
+                  Không gian tổng hợp nhanh tình hình điểm trường, nhiệm vụ và
+                  phản ánh. Hệ thống dashboard chi tiết sẽ được xây dựng ở bước
+                  tiếp theo.
+                </p>
+              </div>
 
-          <section class="dashboard-welcome" id="dashboard-overview">
-            <div class="welcome-content">
-              <span class="welcome-label"> BAN GIÁM HIỆU </span>
+              <div class="welcome-decoration" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </section>
 
-              <h2>Quản lý công việc nhà trường</h2>
+            <div class="overview-grid" aria-label="Khung dashboard tổng quan">
+              <article class="overview-card overview-card-primary">
+                <div class="overview-card-top">
+                  <span class="overview-card-label">Điểm trường</span>
+                  <span class="overview-card-badge">Tổng quan</span>
+                </div>
+                <strong>--</strong>
+                <p>Số điểm trường đang quản lý</p>
+              </article>
 
-              <p>
-                Tạo nhiệm vụ, phân công giáo viên và theo dõi các công việc đã
-                được giao trong cùng một khu vực.
-              </p>
+              <article class="overview-card overview-card-blue">
+                <div class="overview-card-top">
+                  <span class="overview-card-label">Nhiệm vụ</span>
+                  <span class="overview-card-badge">Theo dõi</span>
+                </div>
+                <strong>--</strong>
+                <p>Nhiệm vụ đang thực hiện</p>
+              </article>
+
+              <article class="overview-card overview-card-warm">
+                <div class="overview-card-top">
+                  <span class="overview-card-label">Phản ánh</span>
+                  <span class="overview-card-badge">Tiếp nhận</span>
+                </div>
+                <strong>--</strong>
+                <p>Phản ánh cần xem xét, xử lý</p>
+              </article>
             </div>
 
-            <div class="welcome-decoration">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <section class="card dashboard-card">
+              <div class="section-header">
+                <span class="section-eyebrow">KHUNG DASHBOARD</span>
+                <h2>Khu vực biểu đồ và thông tin tổng hợp</h2>
+                <p>
+                  Tạm thời để trống để phát triển hệ thống dashboard riêng theo
+                  yêu cầu của nhà trường.
+                </p>
+              </div>
+
+              <div class="dashboard-placeholder-grid">
+                <div class="dashboard-placeholder large">
+                  <span>Biểu đồ / thống kê tổng hợp</span>
+                </div>
+
+                <div class="dashboard-placeholder-stack">
+                  <div class="dashboard-placeholder small">
+                    <span>Thông tin nổi bật</span>
+                  </div>
+                  <div class="dashboard-placeholder small">
+                    <span>Công việc cần lưu ý</span>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
 
-          <!-- =====================
-               GIAO NHIỆM VỤ
-          ====================== -->
-
-          <section class="card dashboard-card" id="task-create">
-            <div class="section-header section-header-row">
+          <!-- TAB 2: CÁC ĐIỂM TRƯỜNG -->
+          <section
+            class="admin-tab-panel"
+            id="admin-tab-campuses"
+            data-admin-panel="campuses"
+            hidden
+          >
+            <section class="page-section-heading">
               <div>
-                <span class="section-eyebrow"> TẠO CÔNG VIỆC </span>
-
-                <h2>Giao nhiệm vụ</h2>
-
-                <p>Tạo và giao nhiệm vụ cho giáo viên</p>
-              </div>
-            </div>
-
-            <form id="taskForm" class="task-form">
-              <div class="form-group">
-                <label for="assignedDate"> Ngày giao việc </label>
-
-                <input type="date" id="assignedDate" required />
+                <span class="section-eyebrow">QUẢN LÝ ĐIỂM TRƯỜNG</span>
+                <h2>Các điểm trường</h2>
+                <p>
+                  Thêm, sửa và xóa tên các điểm trường thuộc Trường Mầm non
+                  Tân Khánh 2.
+                </p>
               </div>
 
-              <div class="form-group">
-                <label for="taskName"> Tên nhiệm vụ </label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="addCampusButton"
+              >
+                + Thêm điểm trường
+              </button>
+            </section>
 
-                <input
-                  type="text"
-                  id="taskName"
-                  placeholder="Nhập tên nhiệm vụ"
-                  required
-                />
+            <section
+              class="card campus-editor-card"
+              id="campusEditor"
+              hidden
+              aria-labelledby="campusEditorTitle"
+            >
+              <div class="section-header campus-editor-header">
+                <div>
+                  <span class="section-eyebrow">THÔNG TIN ĐIỂM TRƯỜNG</span>
+                  <h2 id="campusEditorTitle">Thêm điểm trường</h2>
+                  <p>Ở bước này chỉ nhập tên điểm trường.</p>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label for="assignee"> Người được giao việc </label>
+              <form id="campusForm" class="campus-form">
+                <div class="form-group campus-form-name">
+                  <label for="campusName">Tên điểm trường</label>
+                  <input
+                    type="text"
+                    id="campusName"
+                    maxlength="100"
+                    placeholder="Ví dụ: Điểm trường Trung tâm"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
 
-                <select id="assignee" required>
-                  <option value="">-- Chọn giáo viên --</option>
-                </select>
-              </div>
+                <div class="campus-form-actions">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="campusSaveButton"
+                  >
+                    Lưu điểm trường
+                  </button>
 
-              <div class="form-group">
-                <label for="deadline"> Thời hạn hoàn thành </label>
+                  <button
+                    type="button"
+                    class="btn btn-outline"
+                    id="campusCancelButton"
+                  >
+                    Hủy
+                  </button>
+                </div>
 
-                <input type="date" id="deadline" required />
-              </div>
+                <p
+                  id="campusMessage"
+                  class="campus-message"
+                  aria-live="polite"
+                ></p>
+              </form>
+            </section>
 
-              <div class="form-group form-group-full">
-                <label for="expectedOutput"> Kết quả đầu ra </label>
+            <section
+              class="card campus-detail-card"
+              id="campusDetailCard"
+              hidden
+              aria-labelledby="campusDetailName"
+            >
+              <div class="campus-detail-heading">
+                <div>
+                  <span class="section-eyebrow">KHU VỰC ĐIỂM TRƯỜNG</span>
+                  <h2 id="campusDetailName">Chi tiết điểm trường</h2>
+                  <p>
+                    Đây là khung quản lý riêng của điểm trường. Các chức năng
+                    sẽ được mở theo từng bước để bảo đảm dữ liệu và phân quyền.
+                  </p>
+                </div>
 
-                <textarea
-                  id="expectedOutput"
-                  rows="4"
-                  placeholder="Nhập yêu cầu về kết quả đầu ra"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="form-actions">
                 <button
-                  type="submit"
-                  class="btn btn-primary"
-                  id="taskSubmitButton"
+                  type="button"
+                  class="btn btn-outline"
+                  id="closeCampusDetailButton"
                 >
-                  Giao nhiệm vụ
+                  Đóng
                 </button>
-
-                <p id="taskMessage" class="task-message" aria-live="polite"></p>
               </div>
-            </form>
+
+              <section
+                class="campus-account-panel"
+                id="campusAccountPanel"
+                aria-labelledby="campusAccountTitle"
+              >
+                <div class="campus-account-summary">
+                  <div class="campus-detail-account-icon" aria-hidden="true">TK</div>
+
+                  <div class="campus-account-summary-content">
+                    <span class="campus-account-label">Tài khoản điểm trường</span>
+                    <div class="campus-account-title-row">
+                      <strong id="campusAccountTitle">Đang kiểm tra...</strong>
+                      <span
+                        class="campus-account-status pending"
+                        id="campusAccountStatus"
+                      >
+                        Chưa thiết lập
+                      </span>
+                    </div>
+                    <p id="campusAccountDescription">
+                      Mỗi điểm trường sử dụng một tài khoản Firebase Authentication
+                      và hồ sơ users/{UID} liên kết bằng campusId.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="campus-account-existing" id="campusAccountExisting" hidden>
+                  <div class="campus-account-info-grid campus-account-info-grid-3">
+                    <div class="campus-account-info-item">
+                      <span>Email đăng nhập</span>
+                      <strong id="campusAccountEmailDisplay">--</strong>
+                    </div>
+
+                    <div class="campus-account-info-item">
+                      <span>Trạng thái</span>
+                      <strong id="campusAccountActiveDisplay">Đang hoạt động</strong>
+                    </div>
+
+                    <div class="campus-account-info-item">
+                      <span>UID tài khoản</span>
+                      <strong class="account-uid-value" id="campusAccountUidDisplay">--</strong>
+                    </div>
+                  </div>
+
+                  <p class="campus-account-note">
+                    Tài khoản đăng nhập trực tiếp bằng email và mật khẩu đã tạo
+                    trong Firebase Authentication. Website không lưu mật khẩu.
+                  </p>
+                </div>
+              </section>
+
+              <div class="campus-module-grid" aria-label="Các chức năng của điểm trường">
+                <article class="campus-module-card">
+                  <span class="campus-module-index">01</span>
+                  <h3>Danh sách giáo viên</h3>
+                  <p>Quản lý giáo viên thuộc điểm trường.</p>
+                  <span class="campus-module-status">Chưa phát triển</span>
+                </article>
+
+                <article class="campus-module-card">
+                  <span class="campus-module-index">02</span>
+                  <h3>Danh sách lớp</h3>
+                  <p>Quản lý các lớp đang hoạt động tại điểm trường.</p>
+                  <span class="campus-module-status">Chưa phát triển</span>
+                </article>
+
+                <article class="campus-module-card">
+                  <span class="campus-module-index">03</span>
+                  <h3>Danh sách học sinh</h3>
+                  <p>Quản lý học sinh theo lớp và điểm trường.</p>
+                  <span class="campus-module-status">Chưa phát triển</span>
+                </article>
+
+                <article class="campus-module-card">
+                  <span class="campus-module-index">04</span>
+                  <h3>Phản ánh vụ việc</h3>
+                  <p>Gửi và theo dõi các phản ánh phát sinh tại điểm trường.</p>
+                  <span class="campus-module-status">Chưa phát triển</span>
+                </article>
+              </div>
+            </section>
+
+            <section class="card dashboard-card">
+              <div class="management-toolbar campus-toolbar">
+                <div class="form-group campus-search-group">
+                  <label class="visually-hidden" for="campusSearch">
+                    Tìm kiếm điểm trường
+                  </label>
+                  <input
+                    type="search"
+                    id="campusSearch"
+                    placeholder="Tìm kiếm điểm trường..."
+                    autocomplete="off"
+                  />
+                </div>
+
+                <div class="campus-total" aria-live="polite">
+                  <span>Tổng số</span>
+                  <strong id="campusTotal">0</strong>
+                </div>
+              </div>
+
+              <div class="campus-grid" id="campusList">
+                <div class="campus-state-message">
+                  Đang tải danh sách điểm trường...
+                </div>
+              </div>
+            </section>
           </section>
 
-          <!-- =====================
-               DANH SÁCH NHIỆM VỤ
-          ====================== -->
-
-          <section class="card dashboard-card" id="task-list-section">
-            <div class="section-header section-header-row">
+          <!-- TAB 3: GIAO NHIỆM VỤ -->
+          <section
+            class="admin-tab-panel"
+            id="admin-tab-tasks"
+            data-admin-panel="tasks"
+            hidden
+          >
+            <section class="page-section-heading">
               <div>
-                <span class="section-eyebrow"> CÔNG VIỆC ĐÃ GIAO </span>
-
-                <h2>Danh sách nhiệm vụ</h2>
-
-                <p>Các nhiệm vụ hiện có trong hệ thống</p>
+                <span class="section-eyebrow">QUẢN LÝ CÔNG VIỆC</span>
+                <h2>Giao nhiệm vụ</h2>
+                <p>
+                  Tạo nhiệm vụ cho giáo viên và theo dõi danh sách công việc đã
+                  giao.
+                </p>
               </div>
-            </div>
+            </section>
 
-            <div class="table-wrapper">
-              <table class="task-table">
-                <thead>
-                  <tr>
-                    <th>Ngày giao</th>
-                    <th>Tên nhiệm vụ</th>
-                    <th>Người thực hiện</th>
-                    <th>Thời hạn</th>
-                    <th>Kết quả đầu ra</th>
-                    <th>Thao tác</th>
-                  </tr>
-                </thead>
+            <section class="card dashboard-card" id="task-create">
+              <div class="section-header section-header-row">
+                <div>
+                  <span class="section-eyebrow">TẠO CÔNG VIỆC</span>
+                  <h2>Giao nhiệm vụ</h2>
+                  <p>Tạo và giao nhiệm vụ cho giáo viên</p>
+                </div>
+              </div>
 
-                <tbody id="taskList">
-                  <tr>
-                    <td colspan="6" class="empty-message">
-                      Chưa có nhiệm vụ nào.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              <form id="taskForm" class="task-form">
+                <div class="form-group">
+                  <label for="assignedDate">Ngày giao việc</label>
+                  <input type="date" id="assignedDate" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="taskName">Tên nhiệm vụ</label>
+                  <input
+                    type="text"
+                    id="taskName"
+                    placeholder="Nhập tên nhiệm vụ"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="assignee">Người được giao việc</label>
+                  <select id="assignee" required>
+                    <option value="">-- Chọn giáo viên --</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="deadline">Thời hạn hoàn thành</label>
+                  <input type="date" id="deadline" required />
+                </div>
+
+                <div class="form-group form-group-full">
+                  <label for="expectedOutput">Kết quả đầu ra</label>
+                  <textarea
+                    id="expectedOutput"
+                    rows="4"
+                    placeholder="Nhập yêu cầu về kết quả đầu ra"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="taskSubmitButton"
+                  >
+                    Giao nhiệm vụ
+                  </button>
+
+                  <p id="taskMessage" class="task-message" aria-live="polite"></p>
+                </div>
+              </form>
+            </section>
+
+            <section class="card dashboard-card" id="task-list-section">
+              <div class="section-header section-header-row">
+                <div>
+                  <span class="section-eyebrow">CÔNG VIỆC ĐÃ GIAO</span>
+                  <h2>Danh sách nhiệm vụ</h2>
+                  <p>Các nhiệm vụ hiện có trong hệ thống</p>
+                </div>
+              </div>
+
+              <div class="table-wrapper">
+                <table class="task-table">
+                  <thead>
+                    <tr>
+                      <th>Ngày giao</th>
+                      <th>Tên nhiệm vụ</th>
+                      <th>Người thực hiện</th>
+                      <th>Thời hạn</th>
+                      <th>Kết quả đầu ra</th>
+                      <th>Thao tác</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="taskList">
+                    <tr>
+                      <td colspan="6" class="empty-message">
+                        Chưa có nhiệm vụ nào.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <!-- TAB 4: PHẢN ÁNH VỤ VIỆC -->
+          <section
+            class="admin-tab-panel"
+            id="admin-tab-reports"
+            data-admin-panel="reports"
+            hidden
+          >
+            <section class="page-section-heading">
+              <div>
+                <span class="section-eyebrow">TIẾP NHẬN THÔNG TIN</span>
+                <h2>Phản ánh vụ việc</h2>
+                <p>
+                  Khu vực Ban Giám hiệu theo dõi phản ánh của giáo viên về học
+                  sinh, trang thiết bị, cơ sở vật chất và các sự cố phát sinh.
+                </p>
+              </div>
+            </section>
+
+            <section class="card dashboard-card">
+              <div class="report-filter-grid">
+                <div class="filter-field-placeholder">
+                  <span>Điểm trường</span>
+                  <strong>Tất cả điểm trường</strong>
+                </div>
+                <div class="filter-field-placeholder">
+                  <span>Nhóm phản ánh</span>
+                  <strong>Tất cả nhóm</strong>
+                </div>
+                <div class="filter-field-placeholder">
+                  <span>Trạng thái</span>
+                  <strong>Tất cả trạng thái</strong>
+                </div>
+              </div>
+
+              <div class="report-list-placeholder">
+                <article class="report-item-placeholder">
+                  <div class="report-item-status report-item-status-warm"></div>
+                  <div>
+                    <div class="report-item-meta">
+                      <span>Khung phản ánh mẫu</span>
+                      <span>Chưa kết nối dữ liệu</span>
+                    </div>
+                    <h3>Nội dung phản ánh sẽ hiển thị tại đây</h3>
+                    <p>
+                      Sau khi phát triển chức năng, Ban Giám hiệu có thể xem chi
+                      tiết, phân loại và cập nhật trạng thái xử lý.
+                    </p>
+                  </div>
+                </article>
+
+                <article class="report-item-placeholder">
+                  <div class="report-item-status report-item-status-blue"></div>
+                  <div>
+                    <div class="report-item-meta">
+                      <span>Khung phản ánh mẫu</span>
+                      <span>Chưa kết nối dữ liệu</span>
+                    </div>
+                    <h3>Nội dung phản ánh sẽ hiển thị tại đây</h3>
+                    <p>
+                      Các phản ánh có thể liên quan đến học sinh, thiết bị, sự cố
+                      hoặc các vấn đề cần Ban Giám hiệu theo dõi.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </section>
           </section>
         </div>
       </div>
     </main>
 
+    <script src="js/dashboard-ui.js"></script>
     <script type="module" src="js/auth-guard.js"></script>
-
     <script type="module" src="js/tasks.js"></script>
+    <script type="module" src="js/campuses.js"></script>
+    <script type="module" src="js/campus-accounts.js"></script>
   </body>
 </html>

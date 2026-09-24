@@ -519,9 +519,16 @@ async function deleteTask(taskId, taskTitle, deleteButton) {
   }
 
   // Hỏi xác nhận trước khi xóa
-  const confirmed = window.confirm(
-    `Anh/chị có chắc chắn muốn xóa nhiệm vụ:\n\n"${taskTitle}"?\n\nDữ liệu sau khi xóa sẽ không thể khôi phục.`,
-  );
+  const confirmed = window.AdminUI
+    ? await window.AdminUI.confirm({
+        title: "Xóa nhiệm vụ?",
+        message: `Anh/chị đang chuẩn bị xóa “${taskTitle}”.`,
+        detail: "Dữ liệu sau khi xóa sẽ không thể khôi phục.",
+        confirmText: "Xóa nhiệm vụ",
+        cancelText: "Giữ lại",
+        tone: "danger",
+      })
+    : window.confirm(`Anh/chị có chắc chắn muốn xóa nhiệm vụ “${taskTitle}”?`);
 
   if (!confirmed) {
     return;
@@ -539,6 +546,7 @@ async function deleteTask(taskId, taskTitle, deleteButton) {
     console.log("Đã xóa nhiệm vụ:", taskId);
 
     showTaskMessage("Đã xóa nhiệm vụ.", "success");
+    window.AdminUI?.toast("Đã xóa nhiệm vụ.", "success");
 
     // Không cần tự xóa hàng khỏi bảng.
     // onSnapshot() sẽ tự cập nhật giao diện.

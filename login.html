@@ -2,10 +2,9 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Đăng nhập | Trường Mầm non</title>
+    <title>Đăng nhập | Trường Mầm non Tân Khánh 2</title>
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -15,43 +14,43 @@
       <div class="login-card">
         <div class="login-header">
           <h1>Đăng nhập</h1>
-
-          <p>Khu vực dành cho Ban Giám hiệu</p>
+          <p>Khu vực dành cho Ban Giám hiệu và các điểm trường</p>
         </div>
 
         <form id="loginForm">
           <div class="form-group">
-            <label for="email"> Email </label>
-
+            <label for="email">Email đăng nhập</label>
             <input
               type="email"
               id="email"
               name="email"
               placeholder="Nhập địa chỉ email"
+              autocomplete="username"
               required
             />
           </div>
 
           <div class="form-group">
-            <label for="password"> Mật khẩu </label>
-
+            <label for="password">Mật khẩu</label>
             <input
               type="password"
               id="password"
               name="password"
               placeholder="Nhập mật khẩu"
+              autocomplete="current-password"
               required
             />
           </div>
 
-          <button type="submit" class="btn btn-primary btn-full">
+          <button type="submit" class="btn btn-primary btn-full" id="loginButton">
             Đăng nhập
           </button>
+
           <p id="loginMessage" class="login-message" aria-live="polite"></p>
         </form>
 
         <div class="login-footer">
-          <a href="index.html"> ← Quay lại trang chủ </a>
+          <a href="index.html">← Quay lại trang chủ</a>
         </div>
       </div>
     </main>

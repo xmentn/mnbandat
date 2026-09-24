@@ -2,50 +2,95 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Trường Mầm non</title>
+    <title>Trường Mầm non Tân Khánh 2</title>
+
+    <meta
+      name="description"
+      content="Hệ thống quản lý và điều hành Trường Mầm non Tân Khánh 2"
+    />
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <body>
-    <header class="main-header">
-      <div class="container">
-        <div class="brand">
-          <h1>TRƯỜNG MẦM NON</h1>
-          <p>Website quản lý và thông tin nhà trường</p>
-        </div>
+  <body class="portal-home">
+    <!-- ==================================================
+         BANNER NHẬN DIỆN
+    =================================================== -->
+    <header class="portal-banner">
+      <div class="portal-banner-inner">
+        <img src="assets/images/benner.png" alt="Trường Mầm non Tân Khánh 2" />
 
-        <a href="login.html" class="btn btn-primary"> Đăng nhập </a>
+        <a
+          href="login.html"
+          class="portal-banner-login"
+          aria-label="Đăng nhập hệ thống"
+        >
+          Đăng nhập hệ thống
+        </a>
       </div>
     </header>
 
-    <main class="home-main">
-      <section class="hero">
-        <div class="container hero-content">
-          <div>
-            <span class="hero-label"> Môi trường giáo dục thân thiện </span>
+    <!-- ==================================================
+         NỘI DUNG CHÍNH
+    =================================================== -->
+    <main class="portal-main">
+      <!-- CHỨC NĂNG CHÍNH -->
+      <section class="portal-functions" aria-label="Chức năng chính">
+        <div class="container">
+          <div class="portal-function-grid">
+            <article class="portal-function-card">
+              <div class="portal-function-icon">01</div>
 
-            <h2>Chào mừng đến với website của Trường Mầm non</h2>
+              <div>
+                <h1>Điểm trường</h1>
+                <p>
+                  Theo dõi từng điểm trường, giáo viên, học sinh, nhiệm vụ và
+                  các nội dung cần xử lý tại từng đơn vị.
+                </p>
+              </div>
+            </article>
 
-            <p>
-              Hệ thống hỗ trợ công tác quản lý, giao nhiệm vụ và các hoạt động
-              của nhà trường.
-            </p>
+            <article class="portal-function-card">
+              <div class="portal-function-icon blue">02</div>
 
-            <a href="login.html" class="btn btn-primary">
-              Đăng nhập hệ thống
-            </a>
+              <div>
+                <h2>Nhiệm vụ</h2>
+                <p>
+                  Giao nhiệm vụ, theo dõi tiến độ, thời hạn và kết quả thực hiện
+                  của từng giáo viên.
+                </p>
+              </div>
+            </article>
+
+            <article class="portal-function-card">
+              <div class="portal-function-icon warm">03</div>
+
+              <div>
+                <h2>Phản ánh sự việc</h2>
+                <p>
+                  Tiếp nhận và theo dõi các phản ánh về cơ sở vật chất, thiết bị
+                  và những vấn đề phát sinh tại điểm trường.
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="main-footer">
-      <div class="container">
-        <p>© 2026 Trường Mầm non</p>
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+    <footer class="portal-footer">
+      <div class="container portal-footer-inner">
+        <div>
+          <strong>TRƯỜNG MẦM NON TÂN KHÁNH 2</strong>
+          <span>Ủy ban nhân dân xã Tân Khánh</span>
+        </div>
+
+        <p>© 2026 Trường Mầm non Tân Khánh 2</p>
       </div>
     </footer>
   </body>
