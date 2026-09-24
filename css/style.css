@@ -793,36 +793,212 @@ body.auth-checking .dashboard-main {
   display: block;
 }
 
-/* Nút đăng nhập duy nhất, đặt trên banner */
-.portal-banner-login {
+/* =========================================================
+   TRẠNG THÁI ĐĂNG NHẬP TRÊN BANNER TRANG CHỦ
+========================================================= */
+.portal-banner {
+  overflow: visible;
+}
+
+.portal-auth-area {
   position: absolute;
   right: 28px;
   bottom: 18px;
-  z-index: 5;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.portal-auth-loading,
+.portal-banner-login,
+.portal-area-link,
+.portal-account-button {
   min-height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 22px;
-  color: #ffffff;
-  background: rgba(15, 126, 111, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(19, 72, 68, 0.22);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 22px rgba(19, 72, 68, 0.18);
+  backdrop-filter: blur(6px);
   font-size: 14px;
   font-weight: 700;
+}
+
+.portal-auth-loading {
+  padding: 10px 18px;
+  color: #45636a;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+}
+
+.portal-banner-login,
+.portal-area-link {
+  padding: 10px 20px;
+  color: #ffffff;
+  background: rgba(15, 126, 111, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   transition:
     background var(--transition),
     transform var(--transition),
     box-shadow var(--transition);
 }
 
-.portal-banner-login:hover {
+.portal-banner-login:hover,
+.portal-area-link:hover {
   color: #ffffff;
   background: var(--color-primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(19, 72, 68, 0.28);
+}
+
+.portal-session {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.portal-session[hidden],
+.portal-banner-login[hidden],
+.portal-auth-loading[hidden],
+.portal-account-menu[hidden] {
+  display: none !important;
+}
+
+.portal-account-wrap {
+  position: relative;
+}
+
+.portal-account-button {
+  gap: 9px;
+  max-width: 310px;
+  padding: 7px 11px;
+  color: #173f43;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.portal-account-button:hover,
+.portal-account-button[aria-expanded="true"] {
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(19, 72, 68, 0.24);
+}
+
+.portal-account-avatar {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 32px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.portal-account-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.portal-account-text small {
+  margin-bottom: 2px;
+  color: #789094;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.portal-account-text strong {
+  max-width: 205px;
+  overflow: hidden;
+  color: #173f43;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portal-account-chevron {
+  color: #6f8589;
+  font-size: 12px;
+  transition: transform var(--transition);
+}
+
+.portal-account-button[aria-expanded="true"] .portal-account-chevron {
+  transform: rotate(180deg);
+}
+
+.portal-account-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: min(320px, calc(100vw - 28px));
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(24, 67, 72, 0.2);
+}
+
+.portal-account-menu-info {
+  display: flex;
+  flex-direction: column;
+  padding: 17px 18px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.portal-account-menu-info strong {
+  margin-bottom: 3px;
+  color: var(--color-heading);
+  font-size: 14px;
+}
+
+.portal-account-menu-info span {
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.portal-account-menu-info small {
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.portal-account-logout {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 18px;
+  color: var(--color-danger);
+  background: #ffffff;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.portal-account-logout:hover {
+  background: var(--color-danger-bg);
+}
+
+.portal-account-logout:disabled {
+  opacity: 0.65;
+  cursor: wait;
 }
 
 /* Sau banner đi thẳng vào 3 chức năng, không có tiêu đề lặp */
@@ -1091,12 +1267,46 @@ textarea:focus-visible {
     font-size: 20px;
   }
 
-  .portal-banner-login {
+  .portal-auth-area {
     right: 12px;
     bottom: 10px;
+  }
+
+  .portal-auth-loading,
+  .portal-banner-login,
+  .portal-area-link,
+  .portal-account-button {
     min-height: 38px;
-    padding: 7px 13px;
     border-radius: 9px;
+    font-size: 11px;
+  }
+
+  .portal-banner-login,
+  .portal-area-link {
+    padding: 7px 13px;
+  }
+
+  .portal-session {
+    gap: 7px;
+  }
+
+  .portal-account-button {
+    max-width: 230px;
+    padding: 5px 8px;
+  }
+
+  .portal-account-avatar {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .portal-account-text small {
+    display: none;
+  }
+
+  .portal-account-text strong {
+    max-width: 145px;
     font-size: 11px;
   }
 
@@ -1160,11 +1370,42 @@ textarea:focus-visible {
     padding: 18px;
   }
 
-  .portal-banner-login {
+  .portal-auth-area {
     right: 8px;
     bottom: 7px;
+  }
+
+  .portal-auth-loading,
+  .portal-banner-login,
+  .portal-area-link,
+  .portal-account-button {
     min-height: 34px;
-    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .portal-session {
+    gap: 5px;
+  }
+
+  .portal-area-link {
+    padding: 6px 9px;
+  }
+
+  .portal-account-button {
+    max-width: 165px;
+    padding: 4px 6px;
+  }
+
+  .portal-account-avatar {
+    display: none;
+  }
+
+  .portal-account-text strong {
+    max-width: 116px;
+    font-size: 10px;
+  }
+
+  .portal-account-chevron {
     font-size: 10px;
   }
 
@@ -2395,5 +2636,202 @@ body.dialog-open {
 
   .campus-account-actions .btn {
     width: 100%;
+  }
+}
+
+/* =========================================================
+   18. TÀI KHOẢN ĐIỂM TRƯỜNG - CHẾ ĐỘ HIỂN THỊ
+========================================================= */
+.campus-account-info-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.account-uid-value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* =========================================================
+   19. KHU VỰC ĐIỂM TRƯỜNG - CAMPUS.HTML
+========================================================= */
+.campus-page {
+  min-height: 100vh;
+}
+
+body.auth-checking .campus-header,
+body.auth-checking .campus-main {
+  visibility: hidden;
+}
+
+.campus-layout {
+  grid-template-columns: 245px minmax(0, 1fr);
+}
+
+.campus-sidebar-name {
+  margin: 0 8px 16px;
+  padding: 13px 14px;
+  color: var(--color-heading);
+  background: #f4faf8;
+  border: 1px solid #dcebe7;
+  border-radius: 11px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.campus-nav .dashboard-nav-item {
+  width: 100%;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.campus-nav-number {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #738896;
+  background: #eff5f3;
+  border: 1px solid #dce8e5;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.campus-nav .dashboard-nav-item.active .campus-nav-number {
+  color: #ffffff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.campus-tab-panel[hidden] {
+  display: none !important;
+}
+
+.campus-welcome {
+  margin-bottom: 24px;
+}
+
+.campus-home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campus-home-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-height: 150px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.campus-home-index {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.campus-home-card h3 {
+  margin-bottom: 6px;
+  color: var(--color-heading);
+  font-size: 17px;
+}
+
+.campus-home-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.campus-coming-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.campus-coming-card strong {
+  margin-bottom: 8px;
+  color: var(--color-heading);
+  font-size: 18px;
+}
+
+.campus-coming-card p {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+@media (max-width: 1000px) {
+  .campus-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-sidebar-name {
+    margin: 0 0 12px;
+  }
+
+  .campus-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .campus-nav .dashboard-nav-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .campus-account-info-grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .campus-home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .campus-nav .dashboard-nav-item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .campus-account-info-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .campus-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-nav .dashboard-nav-item:last-child {
+    grid-column: auto;
+  }
+
+  .campus-home-card {
+    padding: 20px;
   }
 }

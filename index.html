@@ -22,13 +22,67 @@
       <div class="portal-banner-inner">
         <img src="assets/images/benner.png" alt="Trường Mầm non Tân Khánh 2" />
 
-        <a
-          href="login.html"
-          class="portal-banner-login"
-          aria-label="Đăng nhập hệ thống"
-        >
-          Đăng nhập hệ thống
-        </a>
+        <div class="portal-auth-area is-checking" id="portalAuthArea">
+          <span class="portal-auth-loading" id="portalAuthLoading">
+            Đang kiểm tra phiên đăng nhập...
+          </span>
+
+          <a
+            href="login.html"
+            class="portal-banner-login"
+            id="portalLoginLink"
+            aria-label="Đăng nhập hệ thống"
+            hidden
+          >
+            Đăng nhập hệ thống
+          </a>
+
+          <div class="portal-session" id="portalSession" hidden>
+            <a href="#" class="portal-area-link" id="portalAreaLink">
+              Vào khu vực quản lý
+            </a>
+
+            <div class="portal-account-wrap">
+              <button
+                type="button"
+                class="portal-account-button"
+                id="portalAccountButton"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="portalAccountMenu"
+              >
+                <span class="portal-account-avatar" aria-hidden="true">TK</span>
+                <span class="portal-account-text">
+                  <small>Đã đăng nhập</small>
+                  <strong id="portalAccountName">Tài khoản</strong>
+                </span>
+                <span class="portal-account-chevron" aria-hidden="true">▾</span>
+              </button>
+
+              <div
+                class="portal-account-menu"
+                id="portalAccountMenu"
+                role="menu"
+                hidden
+              >
+                <div class="portal-account-menu-info">
+                  <strong id="portalMenuName">Tài khoản</strong>
+                  <span id="portalMenuRole">Người dùng</span>
+                  <small id="portalMenuEmail"></small>
+                </div>
+
+                <button
+                  type="button"
+                  class="portal-account-logout"
+                  id="portalLogoutButton"
+                  role="menuitem"
+                >
+                  Đăng xuất
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -68,7 +122,7 @@
               <div class="portal-function-icon warm">03</div>
 
               <div>
-                <h2>Phản ánh sự việc</h2>
+                <h2>Phản ánh &amp; sự cố</h2>
                 <p>
                   Tiếp nhận và theo dõi các phản ánh về cơ sở vật chất, thiết bị
                   và những vấn đề phát sinh tại điểm trường.
@@ -93,5 +147,6 @@
         <p>© 2026 Trường Mầm non Tân Khánh 2</p>
       </div>
     </footer>
+    <script type="module" src="js/home-auth.js"></script>
   </body>
 </html>
